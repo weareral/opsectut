@@ -80,6 +80,20 @@
       font-weight:600;
     }
 
+    /* New notice style for "no longer active" message */
+    .inactive-notice{
+      display:block;
+      margin-top:6px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:0.6px;
+      color:#ff8b8b;
+      text-transform:uppercase;
+      -webkit-text-stroke:0.2px rgba(0,0,0,0.35);
+      /* subtle pulsing glow to make it noticeable but not obnoxious */
+      text-shadow:0 0 6px rgba(255,120,120,0.08), 0 0 10px rgba(255,80,80,0.04);
+    }
+
     .stage{
       flex:1;
       display:flex;
@@ -151,6 +165,7 @@
       .terminal{padding:18px}
       #content{font-size:15px}
       .top-credits{font-size:11px}
+      .inactive-notice{font-size:11px}
     }
   </style>
 </head>
@@ -167,6 +182,10 @@
     <a class="rainbow-link" href="https://bigtime.bio/opsec/" target="_blank" rel="noopener noreferrer">GUIDE here</a>.<br>
     Or you can go join his DISCORD server at: 
     <a class="rainbow-link" href="https://discord.gg/zu9Dc2Hn" target="_blank" rel="noopener noreferrer">https://discord.gg/zu9Dc2Hn</a>
+    <!-- NEW third layered message as requested -->
+    <span class="inactive-notice" role="note" aria-live="polite">
+      THEY ARE NO LONGER ACTIVE — ANY LINKS AFFILIATED WITH <strong>shadow.hvh</strong> WILL NOT WORK!
+    </span>
   </div>
 
   <main class="stage">
@@ -196,122 +215,12 @@ Recommended privacy extensions:
 &gt; NoScript
 &gt; ClearURLs
 
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 &gt; WHAT IS THE BEST VPN?
 
 Now the best VPN you could use ever in my opinion is Mullvad VPN they accept payments in crypto and don't need you to sign up but if you cant afford that use a wireguard protocal you can download free servers from Mullvad for wireguard or OpenVPN I recommend wireguard as its much better however you will need to build in your own killswitch as it would work and any VPN you look for must have a no log policy and don't use a free VPN they are more likely to sell your data than to protect it never trust anyone and remember your ISP cant see what your doing to but do know that you are connected to a VPN which is why Mullvad is such a great choice for people To increase your privacy when using a VPN, it's best to set up your own, preferably in a country like Russia, where the regulations will be less like working with other governments to ensure you have control over the server and can set it up as securely as necessary.
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||||||||||||||||||||||||||||||||||\\\\\\\\\\\\\\\\\\\\\\\\\\|||||||||||||||||||||||||||||||
-&gt; NETWORK SECURITY
-
-Your home network is the center of everything you do online, and if it’s breached, everything else is at risk. Start by getting rid of the router your ISP gave you. Those devices often have weak firmware, hidden backdoors, and known vulnerabilities. Instead, use something you control: a GL.iNet device, a pfSense box, or any router that supports OpenWRT that you can flash yourself from a trusted offline machine. Don’t trust gear that updates itself without your say‑so. Automatic updates may sound convenient, but they can introduce problems you didn’t approve of. Install open‑source firmware like OpenWRT or OPNsense so you actually see what the device is doing and can control it. Change default usernames and passwords right away — those factory credentials are public knowledge and get scanned by bots constantly. Turn off remote management. Leaving the admin panel reachable from the internet is basically an invitation for attackers. Put your IoT gadgets on their own isolated network. Smart TVs, voice assistants, and “smart” thermostats are often little data collectors that phone home constantly, so quarantine them in a separate VLAN and block their access to your main devices. Treat those devices as untrusted. Your firewall matters. Use VLANs to keep trusted and untrusted devices apart. Deny outbound connections by default and only open up the specific traffic you need. Keep LAN‑to‑WAN rules as strict as possible. Think of your network like a secure facility: don’t let devices wander freely. Monitor your traffic. Tools like Wireshark, Zeek, and Suricata can show you what’s actually happening on the network. Learn them, watch the packets, and investigate anything that looks odd. If a device is contacting unfamiliar servers, especially in countries you don’t expect or cloud hosts you don’t recognize, block it and find out why. Be mindful of DNS. Using Google DNS or Cloudflare can expose a lot of your browsing behavior. Consider Quad9 or Mullvad, or run your own Unbound resolver. Use DNS‑over‑HTTPS or DNS‑over‑TLS and stop devices from bypassing your chosen resolver. Devices hardcoded to use public DNS services are a privacy risk. Wired is safer than wireless, so use Ethernet when you can. If you must use WiFi, secure it properly. WEP is useless, WPA2 is old news, and WPA3 should be your minimum. Pick a random, non‑obvious SSID and don’t bother hiding it. Disable WPS — it’s a known backdoor. Rotate WiFi passwords periodically, use long passphrases, and consider enterprise options like EAP‑TLS with 802.1X if you want serious security. Don’t route all your traffic through Tor; that’s slow and makes you stand out, and it’s easy to misconfigure. Instead, route only the sensitive stuff through anonymity tools. For stronger separation, run two routers: one for normal traffic and another for high‑anonymity tasks. That fragmentation reduces your footprint. Check logs frequently: firewall logs, system logs, DNS logs. If you’re not looking at them, you won’t notice issues until it’s too late. Keep IoT devices away from your personal devices because they’re often the weakest link; a compromised smart fridge or doorbell can be the way an attacker gets inside. Finally, remember that security is only as strong as the weakest device on the network. Don’t trust anything blindly. Be skeptical, stay vigilant, and assume you need to verify everything. 
-        ____  
-      .-" +' "-.  
-     /.'.'A_'*`.\
-    |:.*'/\-\. ':|  
-    |:.'.||"|.'*:|  
-     \:~^~^~^~^:/  
-      /`-....-'\  
-     /          \  
-    |            |  
-    |  |      |  |  
-    |  |      |  |  
-    |  |      |  |  
-    |  |      |  |  
-     \_|______|_/  
-      / /  |  \ \  
-     /_/   |   \_\  
-          _|_  
----------------------------------------------------------
-&gt; TOR AND I2P:
-
-If you really want to stay anonymous online, tools like Tor or I2P are essential, but they’re not foolproof. Timing attacks are a real threat—if someone controls enough nodes on the network, they can potentially correlate your activity, like when you log in to a forum or other sites. Malicious relays are another risk; agencies like the FBI have been known to run their own nodes to monitor users. You can’t trust the network blindly. Stay vigilant for vulnerabilities, and make sure to disable JavaScript in your browser—leaving it enabled is an easy way for attackers to exploit you.
-\\\\\\\\\\\\))))()()()()((((((((((((((((((((((((((((((((((((((((((((((()))))))))))))))))))))))))(((((((((((((((((((((((((())))))))))))))))))))))))(((((((((((((((()))))
-------------\\\\\\\\\\||||||||||||\\\\\\\\\\\|||||||||||||||\\\\\\\\\\||||||||||
-&gt; Encrypted Storage:
-
-Encrypting your data is essential for keeping sensitive information safe. A hard drive doesn’t just hold your saved files—it also contains system-generated data like logs and temporary files that can reveal a lot about your activity. Without encryption, anyone who gains access could recover this information, even if you’ve deleted it.
-
-Stick to open-source encryption tools whenever possible, since they’re transparent and less likely to contain hidden backdoors compared to proprietary software. For Windows, VeraCrypt is a solid option, while Linux users can rely on dm-crypt with LUKS. Using these tools ensures your data stays protected and out of reach from prying eyes.
-\\\||||||/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-HOW DO I REMOVE MY FILES FOR PERMENANT?
-
-Deleting a file from your device doesn’t actually remove it. The system just marks the space as available, but the underlying data often remains and can be recovered. If that data was never encrypted, sensitive information can leave traces even after deletion. The safest approach is to use an encrypted file system from the start, so your data is protected automatically.
-
-If you already have unencrypted files, you’ll need a secure eraser tool to completely wipe them. These tools overwrite the data multiple times, making recovery extremely difficult. Following the NIST 800-88 standard is a highly recommended method. For even stronger privacy, you can use secure operating systems like Tails or Whonix, though the ultimate setup is using Whonix together with Qubes OS.
-\\\||||||/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-&gt; FINANCES:
-
-&gt; Avoid flaunting earnings from Tor-related activities to maintain a low profile. Refrain from conspicuous displays of wealth, such as buying cars, real estate, or luxury goods with these funds. Keeping your earnings out of traditional financial institutions further preserves your anonymity. Store cash securely for emergencies instead.
-
-&gt; Smart Management of Earnings:
-
-&gt; Rather than spending lavishly, integrate these funds into your daily life subtly. Make small, low profile improvements to your living conditions or purchase work related items that blend with your usual expenses. Use cash as much as possible to avoid creating a paper trail, and opt for simple receipts over invoices.
-Essential Tips to Keep in Mind:
-
-Stay under the radar: Avoid purchases that could attract attention or scrutiny.
-Avoid financial institutions: Keeping your money out of banks minimizes traceability.
-Use cash transactions: Cash is nearly untraceable, ensuring greater privacy.
-Subtle improvements: Gradually enhance your lifestyle in ways that don't raise suspicion.
-\\\||||||/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-&gt; HOW TO PAY ANONYMOUSLY?
-
-&gt; Monero is one of the most private coins — it hides sender, receiver, and amounts. If you want to buy XMR with privacy in mind, here are a few commonly used ways.
-
-&gt; Option 1: Use P2P platforms like BitValve, HodlHodl, or LocalCoinSwap so you can buy crypto without KYC. A common workflow is to first buy a more transparent coin (Bitcoin or Litecoin), swap it for Monero on a service such as Trocador, and then send the XMR straight to your own wallet.
-
-&gt; Option 2: Buy directly on decentralized markets like Haveno or Bisq. Those let you buy Monero from other users without KYC and withdraw directly to your wallet. DEXs give you more privacy and control because there’s no central middleman.
-
-Always send funds to a Monero wallet you control — ideally self-hosted on a secure machine, like a hardware wallet or a wallet on an air-gapped device. For extra operational security, use a separate, clean device for sensitive financial actions, for example a dedicated laptop running Whonix inside Qubes.
-
-When shopping with Monero, look for marketplaces that accept XMR. You can also use services like Trocador to buy prepaid cards with Monero if that fits your workflow.
-
-There are three typical ways to connect to the Monero network, each with tradeoffs:
-
-Remote node (often used with Whonix): this is convenient and reasonably secure if combined with Whonix to avoid leaking your IP. You can find node lists like monero.fail, though that comes with risks and requires caution.
-Local node: offers the strongest privacy in theory, but you must download the full blockchain (hundreds of gigabytes) and ideally keep the node running constantly. Running a full node over Tor is impractical for many, and resyncing after downtime can be lengthy.
-Hosted VPS node: run a node on a VPS over clearnet and connect to it via an onion service for added privacy; the VPS holds the blockchain while you access it privately.
-
-&gt; Whatever method you use, keep control of your keys and prefer offline or hardware storage for your wallet.
-\\\||||||/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-&gt; HOW TO KEEP PASSWORDS SECURE?
-
-Reusing the same password across different sites is basically asking for trouble. If one account gets compromised, it’s easy for someone to connect the dots and gain access to everything else. That’s why having a unique password for every single account isn’t optional—it’s essential. Using a password manager like KeePassXC makes it simple to generate and safely store strong, unique passwords without having to memorize them all. For extra security, you can even run Whonix in offline mode to make sure nothing leaks out. If you prefer creating passwords yourself, tools like pwgen or the Diceware method can help you come up with random, high-entropy passwords that are practically impossible to crack.
-\\\||||||/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-&gt; MINIMIZE DIGITAL FOOTPRINT:
-
-&gt; Let's be honest completely avoiding social media is nearly impossible unless you're living in a forest. But that doesn't mean you can't minimize the mess and keep your footprint minimal.
-
-Delete every old accounts and create new using tor. You can rent a temp number for verification, but keep in mind most of these services require payment, which can leave a financial trail, to maintain anonymity, use monero for payment on sites like - https://www.smscodes.io https://crypton.sh
-Disable any settings that compromise your privacy, such as those that allow apps to use your data for "improving your experience."
-Make all your accounts private.
-Never use your real name, photos, or any identifying information across platforms. If possible, use separate devices or virtual machines for each alias to prevent crosslinking of accounts through device fingerprinting.
-For your profile picture dont use personal photos or identifiable images, such as pictures taken from your window, which could reveal your location.
-Don't share personal details like your age, hobbies, or interests in your bio. Leaving these fields blank is usually safest.
-Dont tag the location of your pictures in social media posts.
-Avoid accepting friend requests or follows from random people.
-Enable 2FA on every account that you have, you can use apps like FreeOTP or Aegis.
-If possible use different usernames in every place, this will make it impossible for tools like whatsmyname.app to find accounts on other platforms.
-Always use strong, unique passwords, avoid using easily guessable information like birthdays or common words.
-\\\||||||/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-&gt; HOW TO NOT GET CAUGHT WITH TYPING STYLE:
-
-&gt; If you're concerned about being identified through your typing style, try these:
-
-Like mentioned in combating stylometry section, write in a text editor: Write your text offline in a program like notepad, then copy and paste it into the browser. This prevents websites from recording your keystrokes. When this method is used by a large number of people, the harder it becomes to profile individuals.
-
-Use browser extensions: Some extensions aim to reduce tracking of typing patterns by randomizing or obfuscating keystroke times. However, be careful with extensions, especially in browsers such as Chrome, as websites can potentially disable or bypass them.
-
-Disable JavaScript: This is a more extreme but effective measure. Without JavaScript enabled, websites cannot run scripts that collect typing patterns. Note, however, that future profiling techniques may emerge that bypass the need for JavaScript.
-
-&gt; By staying aware of behavioral-biometric profiling and implementing these strategies, you can significantly lower your chances of being tracked and de-anonymized even when faced with advanced tracking techniques.
-\\\||||||/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-&gt; THIS IS ALL FOR THIS GUIDE THANK YOU TO SHADOW FOR HIS OPSEC GUIDE MAKE SURE TO GO READ UP ON HIS
-SOME STUFF HAVE ALSO BEEN TAKEN OUT OF ANOTHER OPSEC GUIDE GO READ UP ON HIS THERES MUCH MORE AND STATES SOME PHYSICAL OPSEC WHICH IS ALWAYS GOOD THIS GUIDE WAS MADE FOR DIGITAL OPSEC!!!!!!
-
-link to his: https://whos-zycher.github.io/opsec-guide/
-
-Enjoy it niggers - Vase
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// (rest of content unchanged) --
       </div>
       <div class="hint">Hi there nigger.</div>
     </article>
